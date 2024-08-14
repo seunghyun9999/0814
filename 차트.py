@@ -1,16 +1,12 @@
 import pandas as pd
-import numpy
+import numpy as np
 import matplotlib.pyplot as plt
-import random
+from pandas.plotting import  scatter_matrix
 
-x=[random.uniform(0,100)for _ in range(1000)]
-y=[random.uniform(0,100)for _ in range(1000)]
+header= ['preg','plas','pres','skin','test','mass','pedi','age','class']
+data = pd.read_csv('./data/pima-indians-diabetes.data.csv',
+                   names=header)
 plt.clf()
-fig, ax = plt.subplots()
 
-plt.scatter(x,y, label='random',color='gold',marker='*',
-            s=30, alpha=0.5)
-ax.set_facecolor('black')
-plt.xlabel('x')
-plt.ylabel('y')
+data.plot(kind='box',subplots=True, figsize=(12,10),layout=(3,3),sharex=False)
 plt.show()

@@ -13,6 +13,7 @@ data = pd.read_csv('./data/1.salary.csv')
 array = data.values
 # 2. 불러온 파일을 열별로 나눈다
 X = array[:,1]
+#  [행, 열] 구조임 그래서 열을 불러올려고 두번째에 수를 넣는거임
 Y = array[:,2]
 # 3. 열을 나눌때 각 열번호에서 하나뺀값으로 넣어서 나눈다
 fig, ax = plt.subplots()
@@ -32,18 +33,22 @@ X1=X.reshape(-1,1)
 model =LinearRegression()
 #  선형 분석으로 모델을 만드는 것
 model.fit(X_train,Y_train)
+model.coef_
+# y=ax+b 일때 a값이 머다
+model.intercept_
+# b값이 머다
 #  7. 그 선형 분석의 값을 6번에서 고른 데이터 값으로 만들어라는 명령
 y_pred = model.predict(X_text)
 #  8. 선형 분석한 값에 6번의 테스트 값을 집어 넣으라는 명령
 print(y_pred)
 
 # -------------------------------------------------------------------------
-plt.figure(figsize=(10,6))
+# plt.figure(figsize=(10,6))
 # 9. 차트의 자체 크기를 정하는 함수
-plt.scatter(range(len(Y_test)),Y_test,color='blue',
+plt.scatter(X_text,Y_test,color='blue',
             marker='o')
 # 10.테스트를 한 것의 원본을 점으로 표현해라
-plt.plot(range(len(y_pred)),y_pred,color='r'
+plt.plot(X_text,y_pred,color='r'
             ,marker='x')
 # 11. 테스트를 한 것의 결과를 선으로 표혀해라
 plt.show()
