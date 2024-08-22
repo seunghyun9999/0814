@@ -10,7 +10,7 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 from pandas.plotting import scatter_matrix
-
+#
 header=['sepal-length','sepal-width','petal-length','petal-width','class']
 data = pd.read_csv('./data/2.iris.csv',names=header)
 des=data.describe()

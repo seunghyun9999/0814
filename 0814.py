@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
-
+#
 # (산점도,선그래프)
 data = pd.read_csv('./data/1.salary.csv')
 # 1. 파일을 불러온다
